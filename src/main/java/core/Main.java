@@ -12,6 +12,7 @@ public class Main {
 	
 	private static JDABuilder jdaBuilder;
     private static JDA jda;
+    private static String Name;
 	
 	public static void main(String[] Args) {
 		
