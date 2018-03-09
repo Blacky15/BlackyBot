@@ -10,21 +10,57 @@ import util.Secrets;
 
 public class Main {
 	
+	private static JDABuilder jdaBuilder;
+    private static JDA jda;
+	
 	public static void main(String[] Args) {
 		
-		JDABuilder builder = new JDABuilder(AccountType.BOT);
-		
-		builder.setToken(Secrets.TOKEN);
-		builder.setAutoReconnect(true);
-		
-		builder.setStatus(OnlineStatus.ONLINE);
-		
-		try {
-			JDA jda = builder.buildBlocking();
-		} catch (LoginException e) {
-			e.printStackTrace();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		setup();
+			
 	}
+	
+	
+	public static void setup() {
+		
+		setJdaBuilder(new JDABuilder(AccountType.BOT));
+		setBotSettings();
+		buildBlocking();
+		addListeners();
+		addCommands();
+	}
+	
+	private static JDABuilder getJdaBuilder() {
+        return jdaBuilder;
+    }
+	
+	private static void setBotSettings() {
+        getJdaBuilder().setToken(Secrets.TOKEN);
+        getJdaBuilder().setAutoReconnect(true);
+        getJdaBuilder().setStatus(OnlineStatus.ONLINE);
+		
+	}
+	
+	private static void addListeners() {
+		
+	}
+	
+	private static void addCommands() {
+		
+	}
+	
+	private static void buildBlocking() {
+        try {
+            setJda(getJdaBuilder().buildBlocking());
+        } catch (LoginException | InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+	
+	private static void setJda(JDA jda) {
+        Main.jda = jda;
+    }
+	
+	private static void setJdaBuilder(JDABuilder jdaBuilder) {
+        Main.jdaBuilder = jdaBuilder;
+    }
 }
