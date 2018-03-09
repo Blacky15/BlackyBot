@@ -2,6 +2,6 @@ package util;
 
 public class Secrets {
 	
-	public static final String TOKEN = "_dvlsUNV8gGnbCh1C9imm5Uc0NjsO0S4";
+	public static final String TOKEN = "NDIxNDIyNDk0MTc2NjQxMDI0.DYRN6g.d0NKJ9PUhCOokV59qIV35lUGdkQ";
 
 }
